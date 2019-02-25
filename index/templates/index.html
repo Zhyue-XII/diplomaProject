@@ -102,34 +102,27 @@
 </div>
 <!-- /Banner Section -->
 <!-- About Section -->
-<section class="about-us" id="article">
+<section class="about-us" style="padding-bottom: 50px" id="article">
 	<h3 class="text-center slideanim">置顶文章</h3>
 	<p class="text-center slideanim">指尖跳动的文字撩动着你的心</p>
 	<div class="container">
-		<div class="row">
+		<div style="overflow: hidden" class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6">
 				<img src="{% static 'images/article-img.jpg' %}" alt="about" class="img-responsive slideanim">
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6">
 				<div class="about-info">
-					<h4 class="slideanim">江南烟雨中</h4>
-					<p class="abt slideanim">
-                        第一次来江南水乡。印象中的水乡应该是草长莺飞，小桥流水，一蓑烟雨的现象。 实则否则。刚到绍兴，满眼尽是楼房拔地而起，商铺树立。
-                        于是乎，带着逃离的心态，驱车一个小时，来到鲁迅新居。三味书屋、百草园、社戏，五猖会、闰土，乃至是碧绿的菜畦、高大的皂荚树、润
-                        滑的石井栏等等，都能在这个大园子里找到踪迹。 对于园子里的全部，都觉得亲热。《从百草园到三味书屋》是初中课文，这篇选自《朝花
-                        夕拾》的回想散文，充溢童趣，曾来来回回给不同的学生讲过四遍。
-                    </p>
-					<p class="abt slideanim">
-                        闰土是鲁迅儿时的玩伴，他英勇，机敏，心爱，生动。相对于公子哥鲁迅，视野更开阔。世事再芜杂，孩童的纯真是挡不住的。
-                        很多年后，再见到中年的闰土，他神态麻木，默不做声。鲁迅说，只是觉得他苦，却又说不出。
+					<h4 class="slideanim">{{ top_article.title }}</h4>
+					<p class="abt slideanim" style="text-indent: 2em">
+                        {{ top_article.text }}
                     </p>
 				</div>
 			</div>
-            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
-                <p class="abt slideanim">
-                    <a style="text-decoration: none" href="/article">更多文章</a></p>
-            </div>
 		</div>
+
+        <div class="row" style="margin-top: 50px" align="center">
+            <p class="abt slideanim"><a style="text-decoration: none" href="/article">更多文章...</a></p>
+        </div>
 	</div>
 </section>
 <!-- /About Section -->
@@ -155,36 +148,14 @@
 	<p class="text-center slideanim">我的梦想是全世界都能留下我的足迹。</p>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-md-4">
-				<div class="event-info">
-					<h4 class="text-center slideanim">2017年5月26日</h4>
-					<p class="eve slideanim">
-                        其实，很多时候，我们总是觉得，一个人的旅行，有点孤单，也有点害怕，因为习惯了很多人在一起，突然一个人出门，看着身边的大姐
-                        大哥，都是你帮我拍照，我帮你拍照，而我自己却只可以用自拍杆，但是我却自由，自由自在的奔跑在济 南的大街上，坐上公交车的那
-                        一刻，我觉得，其实，一个人的旅行也有很意义。
-                    </p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4">
-				<div class="event-info">
-					<h4 class="text-center slideanim">2018年6月1日</h4>
-					<p class="eve slideanim">
-                        这么多年，我去过的地方，今天也来仔细想下，首先第一个就是北京，因为我在北京的时间最长，虽然上班时间多于休息时间，但是我还
-                        是会偷出来放假的时间，每一次都有不一样的感觉，突然有时候觉得，艺术是多么 的美好，当然了，我的每个周末了，由于怀孕的原因，
-                        我也会去郊外，还去爬过长城，逛公园，一切都是最美的！
-                    </p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4">
-				<div class="event-info">
-					<h4 class="text-center slideanim">2018年10月5日</h4>
-					<p class="eve slideanim">
-                        旅行，带给我们的意义远于在自己的地方所遇到的事情，我只能说，我喜欢旅行的原因是因为，在每一个美丽的地方，都有它的故事，有
-                        它存在的意义， 我想去感受它的存在。所以我会去选择有时间，就离开自己的屋子，出去转转，开拓下自己的视野，新的地方，新的气
-                        象，相信在旅行之后，你会更好的热爱自己的生活！
-                    </p>
-				</div>
-			</div>	
+            {% for diary in diary_list %}
+                <div class="col-lg-4 col-md-4">
+                    <div class="event-info">
+                        <h4 class="text-center slideanim">{{ diary.issue_time }}</h4>
+                        <p class="eve slideanim">{{ diary.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
 		</div>
 	</div>
 </section>
@@ -195,15 +166,13 @@
 	<h3 class="text-center slideanim">相册</h3>
 	<p class="text-center slideanim">记录生活，记录你的美</p>
 	<div class="container">
-		<img src="{% static 'images/gxxy.jpg' %}" data-darkbox="{% static 'images/gxxy.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/dyt.jpg' %}" data-darkbox="{% static 'images/dyt.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/光与影.jpg' %}" data-darkbox="{% static 'images/光与影.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/桃花笑.jpg' %}" data-darkbox="{% static 'images/桃花笑.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/浮光掠影里1.jpg' %}" data-darkbox="{% static 'images/浮光掠影里1.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/浮光掠影2.jpg' %}" data-darkbox="{% static 'images/浮光掠影2.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/浮光掠影4.jpg' %}" data-darkbox="{% static 'images/浮光掠影4.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-        <img src="{% static 'images/灯笼.jpg' %}" data-darkbox="{% static 'images/灯笼.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-	</div><br>
+        {% for img in photos %}
+            <img src="../../static/picture/{{ img.image }}" data-darkbox="../../static/picture/{{ img.image }}"
+                 data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet"
+                 class="img-responsive slideanim">
+        {% endfor %}
+    </div>
+    <br>
     <div align="center">
         <p class="abt slideanim">
             <a href="/picture">更多照片</a>
@@ -242,12 +211,14 @@
 					</div>
 				</form>
                 <div class="slideanim" id="liu" style="display: none">
-                    <div class="liu" align="left">
-                        <p>
-                            <img src="{% static 'images/banner5.jpg' %}" alt="">
-                            匿名用户</p>
-                        <p>没有什么能够阻挡！！</p>
-                    </div>
+                    {% for m in msg %}
+                        <div class="liu" align="left">
+                            <p>
+                                <img src="{% static 'images/banner5.jpg' %}" alt="">
+                                {{ m.name }} <span style="margin-left: 10px; font-size: 15px"> {{ m.issue_time }}</span></p>
+                            <p>{{ m.message }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <a style="color: white;text-decoration: none;font-size: 25px" href="javascript:moreliu()">更多留言</a>

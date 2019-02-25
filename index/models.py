@@ -9,6 +9,7 @@ class Article(models.Model):
     visit = models.IntegerField('浏览', default=0)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, verbose_name='作者')
     image = models.ImageField(u'图片', upload_to='article_img')
+    top = models.BooleanField('是否置顶', default=False)
 
     class Meta:
         verbose_name = '文章管理'
@@ -47,10 +48,9 @@ class Diary(models.Model):
 
 
 class Message(models.Model):
-    name = models.CharField(max_length=50, default='访客')
-    issue_time = models.DateTimeField(auto_now=True)
-    message = models.TextField()
-    img = models.ImageField(u'图片', upload_to='msg_img')
+    name = models.CharField('昵称', max_length=50, default='神秘人')
+    issue_time = models.DateTimeField('发布时间', auto_now=True)
+    message = models.TextField('留言内容')
 
     class Meta:
         verbose_name = '留言板管理'

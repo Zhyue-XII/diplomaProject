@@ -5,7 +5,7 @@ from .models import Article, Diary, Discuss, Message, Image
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'issue_time', 'visit', 'image_data']
+    list_display = ['title', 'author', 'issue_time', 'visit', 'top', 'image_data']
     search_fields = ['title']
     list_filter = ['author']
 
@@ -42,12 +42,6 @@ class MessageAdmin(admin.ModelAdmin):
     list_display = ['name', 'issue_time', 'message']
     search_fields = ['name']
     list_filter = ['issue_time']
-
-    def image_data(self, obj):
-        return mark_safe(u'<img src="%s" width="50px"/>' % obj.image.url)
-    readonly_fields = ('image_data',)  # 必须加这行 否则访问编辑页面会报错
-    # 页面显示的字段名称
-    image_data.short_description = '文章插图'
     list_per_page = 10
 
 
