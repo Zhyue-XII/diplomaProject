@@ -1,11 +1,11 @@
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import index_view
+from .views import index_view, article_tab, article_desc
 
 urlpatterns = [
-    path('', index_view, name="index_view"),
+    path('', index_view, name='index_view'),
     path('impress', TemplateView.as_view(template_name='impress.html')),
-    path('article', TemplateView.as_view(template_name='article.html')),
+    path('article', article_tab, name='article_tab'),
     path('picture', TemplateView.as_view(template_name='picture.html')),
-    path('article_desc', TemplateView.as_view(template_name='article_desc.html'))
+    path('article_desc', article_desc, name='article_desc')
 ]
