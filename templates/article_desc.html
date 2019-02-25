@@ -1,0 +1,73 @@
+{% extends 'menu.html' %}
+{% load static %}
+{% block styles %}
+    <style>
+    .article-desc{
+        margin-top: 100px;
+    }
+    h2{
+        padding: 20px 0;
+    }
+    .article-desc p{
+        text-indent: 2em;
+        padding: 20px 0;
+    }
+    .article—msg span{
+        margin-right:25px;
+    }
+    .article-desc img{
+        padding: 2% 0;
+    }
+    .ping img{
+        float: left;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .ping{
+        color: black;
+        height: 35px;
+        padding: 20px 0;
+    }
+    .ping p:first-child{
+        overflow: hidden;
+        line-height: 35px;
+    }
+    .ping p:last-child{
+        padding: 10px 0 0 45px;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="article-desc slideanim">
+        <h2>江南烟雨中</h2>
+        <div class="article—msg">
+            <span>作者：梁冰</span>
+            <span>时间：2017年10月5日</span>
+        </div>
+        <p>
+            第一次来江南水乡。印象中的水乡应该是草长莺飞，小桥流水，一蓑烟雨的现象。 实则否则。刚到绍兴，满眼尽是楼房拔地而起，商铺树立。 于是乎，带着逃离的心态，驱车一个小时，来到鲁迅新居。三味书屋、百草园、社戏，五猖会、闰土，乃至是碧绿的菜畦、高大的皂荚树、润 滑的石井栏等等，都能在这个大园子里找到踪迹。 对于园子里的全部，都觉得亲热。《从百草园到三味书屋》是初中课文，这篇选自《朝花 夕拾》的回想散文，充溢童趣，曾来来回回给不同的学生讲过四遍。
+        </p>
+        <p>
+            闰土是鲁迅儿时的玩伴，他英勇，机敏，心爱，生动。相对于公子哥鲁迅，视野更开阔。世事再芜杂，孩童的纯真是挡不住的。 很多年后，再见到中年的闰土，他神态麻木，默不做声。鲁迅说，只是觉得他苦，却又说不出。
+        </p>
+        <img src="{% static 'images/article-img.jpg' %}" width="35%" alt="">
+    </div>
+
+    <div class="con">
+        <div class="ping">
+            <p>
+                <img src="{% static 'images/banner5.jpg' %}" alt="">
+                匿名用户
+            </p>
+            <p>
+                你好离开军队打击恐怖背景。
+            </p>
+
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+
+{% endblock %}

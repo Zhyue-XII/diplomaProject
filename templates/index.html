@@ -1,0 +1,349 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>我的个人网站</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<!-- css files -->
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- /css files -->
+<!-- font files -->
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- /font files -->
+<!-- js files -->
+<script src="{% static 'js/modernizr.custom.js' %}"></script>
+<!-- /js files -->
+<style>
+    .liu{
+        padding: 20px 0;
+        color: white;
+    }
+    .liu p:first-child{
+        overflow: hidden;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px
+    }
+    .liu img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        float: left;
+        margin-right: 10px
+    }
+    .liu p:last-child{
+        padding: 10px 0 0 50px;
+    }
+</style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<div class="navbar-wrapper" style="position: fixed;top: -20px;height: 70px;background: #5a665c">
+    <div class="container">
+		<nav class="navbar navbar-inverse navbar-static-top cl-effect-20">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">人生旅途</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse navbar-right">
+					<ul class="nav navbar-nav">
+						<li><a href="#"><span data-hover="首页">首页</span></a></li>
+						<li><a href="#article"><span data-hover="置顶文章">置顶文章</span></a></li>
+						<li><a href="#video"><span data-hover="视频">视频</span></a></li>
+						<li><a href="#events"><span data-hover="足迹">足迹</span></a></li>
+						<li><a href="#gallery"><span data-hover="相册">相册</span></a></li>
+						<li><a href="#time"><span data-hover="时光灯">时光灯</span></a></li>
+						<li><a href="#message"><span data-hover="留言板">留言板</span></a></li>
+					</ul>
+				</div>
+			</div>
+        </nav>
+    </div>
+</div>
+<!-- Banner Section -->
+<!-- Carousel-->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+			<img class="first-slide" src="{% static 'images/banner1.jpg' %}" alt="First slide">
+        </div>
+        <div class="item">
+			<img class="second-slide" src="{% static 'images/banner2.jpg' %}" alt="Second slide">
+        </div>
+        <div class="item">
+			<img class="third-slide" src="{% static 'images/banner3.jpg' %}" alt="Third slide">
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!-- /.carousel -->
+</div>
+<!-- /Banner Section -->
+<!-- About Section -->
+<section class="about-us" id="article">
+	<h3 class="text-center slideanim">置顶文章</h3>
+	<p class="text-center slideanim">指尖跳动的文字撩动着你的心</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<img src="{% static 'images/article-img.jpg' %}" alt="about" class="img-responsive slideanim">
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<div class="about-info">
+					<h4 class="slideanim">江南烟雨中</h4>
+					<p class="abt slideanim">
+                        第一次来江南水乡。印象中的水乡应该是草长莺飞，小桥流水，一蓑烟雨的现象。 实则否则。刚到绍兴，满眼尽是楼房拔地而起，商铺树立。
+                        于是乎，带着逃离的心态，驱车一个小时，来到鲁迅新居。三味书屋、百草园、社戏，五猖会、闰土，乃至是碧绿的菜畦、高大的皂荚树、润
+                        滑的石井栏等等，都能在这个大园子里找到踪迹。 对于园子里的全部，都觉得亲热。《从百草园到三味书屋》是初中课文，这篇选自《朝花
+                        夕拾》的回想散文，充溢童趣，曾来来回回给不同的学生讲过四遍。
+                    </p>
+					<p class="abt slideanim">
+                        闰土是鲁迅儿时的玩伴，他英勇，机敏，心爱，生动。相对于公子哥鲁迅，视野更开阔。世事再芜杂，孩童的纯真是挡不住的。
+                        很多年后，再见到中年的闰土，他神态麻木，默不做声。鲁迅说，只是觉得他苦，却又说不出。
+                    </p>
+				</div>
+			</div>
+            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
+                <p class="abt slideanim">
+                    <a style="text-decoration: none" href="/article">更多文章</a></p>
+            </div>
+		</div>
+	</div>
+</section>
+<!-- /About Section -->
+<!-- Services Section -->
+<section class="our-services slideanim" id="video">
+	<h3 class="text-center slideanim">视频</h3>
+	<p class="text-center slideanim">记录我的尖峰时刻。</p>
+	<div id="features">
+		<div class="container">
+			<div class="row" align="center">
+{#                <video width="60%" controls>#}
+{#                    <source src="{% static 'video/demo.MP4' %}" type="video/mp4">#}
+{#                    您的浏览器不支持html播放。#}
+{#                </video>#}
+			</div>
+		</div><!--/ .container -->
+	</div><!--/ #features -->
+</section>
+<!-- /Services Section -->
+<!-- Events -->
+<section class="our-events slideanim" id="events">
+	<h3 class="text-center slideanim">足迹</h3>
+	<p class="text-center slideanim">我的梦想是全世界都能留下我的足迹。</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-4">
+				<div class="event-info">
+					<h4 class="text-center slideanim">2017年5月26日</h4>
+					<p class="eve slideanim">
+                        其实，很多时候，我们总是觉得，一个人的旅行，有点孤单，也有点害怕，因为习惯了很多人在一起，突然一个人出门，看着身边的大姐
+                        大哥，都是你帮我拍照，我帮你拍照，而我自己却只可以用自拍杆，但是我却自由，自由自在的奔跑在济 南的大街上，坐上公交车的那
+                        一刻，我觉得，其实，一个人的旅行也有很意义。
+                    </p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="event-info">
+					<h4 class="text-center slideanim">2018年6月1日</h4>
+					<p class="eve slideanim">
+                        这么多年，我去过的地方，今天也来仔细想下，首先第一个就是北京，因为我在北京的时间最长，虽然上班时间多于休息时间，但是我还
+                        是会偷出来放假的时间，每一次都有不一样的感觉，突然有时候觉得，艺术是多么 的美好，当然了，我的每个周末了，由于怀孕的原因，
+                        我也会去郊外，还去爬过长城，逛公园，一切都是最美的！
+                    </p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<div class="event-info">
+					<h4 class="text-center slideanim">2018年10月5日</h4>
+					<p class="eve slideanim">
+                        旅行，带给我们的意义远于在自己的地方所遇到的事情，我只能说，我喜欢旅行的原因是因为，在每一个美丽的地方，都有它的故事，有
+                        它存在的意义， 我想去感受它的存在。所以我会去选择有时间，就离开自己的屋子，出去转转，开拓下自己的视野，新的地方，新的气
+                        象，相信在旅行之后，你会更好的热爱自己的生活！
+                    </p>
+				</div>
+			</div>	
+		</div>
+	</div>
+</section>
+<div class="tlinks"></div>
+<!-- /Events -->
+<!-- Gallery Section -->
+<section class="our-gallery" id="gallery">
+	<h3 class="text-center slideanim">相册</h3>
+	<p class="text-center slideanim">记录生活，记录你的美</p>
+	<div class="container">
+		<img src="{% static 'images/gxxy.jpg' %}" data-darkbox="{% static 'images/gxxy.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/dyt.jpg' %}" data-darkbox="{% static 'images/dyt.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/光与影.jpg' %}" data-darkbox="{% static 'images/光与影.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/桃花笑.jpg' %}" data-darkbox="{% static 'images/桃花笑.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/浮光掠影里1.jpg' %}" data-darkbox="{% static 'images/浮光掠影里1.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/浮光掠影2.jpg' %}" data-darkbox="{% static 'images/浮光掠影2.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/浮光掠影4.jpg' %}" data-darkbox="{% static 'images/浮光掠影4.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+        <img src="{% static 'images/灯笼.jpg' %}" data-darkbox="{% static 'images/灯笼.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+	</div><br>
+    <div align="center">
+        <p class="abt slideanim">
+            <a href="/picture">更多照片</a>
+        </p>
+    </div>
+</section>
+
+<!-- /Gallery Section -->
+<!-- Testimonials -->
+<section class="our-testimonials slideanim" id="time">
+	<h3 class="text-center slideanim">时光灯，感受时间流逝..</h3>
+	<p class="text-center slideanim">幻灯片，一种回忆时间的能力</p>
+	<div class="container">
+		<div class="row" align="center">
+            <h2><a style="color: white;text-decoration: none" href="/impress">点我，时光穿梭入口</a></h2>
+		</div>
+	</div>
+</section>
+<!-- Testimonials -->
+
+<!-- Contact Section -->
+<section class="our-contacts slideanim" id="message">
+	<h3 class="text-center slideanim">留言板</h3>
+	<p class="text-center slideanim">我们用心记录下每一个瞬间，很久很久以后，这些都是可以用生命去回忆的。</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12" align="center">
+				<form role="form">
+					<div class="row">
+						<div class="form-group col-lg-12 slideanim">
+							<textarea class="form-control" rows="6" placeholder="请留言.." required/></textarea>
+						</div>
+						<div class="form-group col-lg-12 slideanim">
+							<button type="submit" href="#" class="btn-outline1">Submit</button>
+						</div>
+					</div>
+				</form>
+                <div class="slideanim" id="liu" style="display: none">
+                    <div class="liu" align="left">
+                        <p>
+                            <img src="{% static 'images/banner5.jpg' %}" alt="">
+                            匿名用户</p>
+                        <p>没有什么能够阻挡！！</p>
+                    </div>
+                </div>
+
+                <a style="color: white;text-decoration: none;font-size: 25px" href="javascript:moreliu()">更多留言</a>
+                <script>
+                    function moreliu() {
+                        $("#liu").css({"display":"block"})
+                    }
+                </script>
+			</div>	
+		</div>
+	</div>
+</section>
+<!-- /Contact Section -->
+
+<!-- Footer Section -->
+<section class="footer">
+	<h2 class="text-center">我将会变的越来越好</h2>
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 footer-left">
+				<h4>我曾经</h4>
+				<div class="contact-info">
+					<div class="address">
+                        跨过山和大海，也穿过人山人海。
+					</div>
+					<div class="phone">
+                        我曾经拥有这一切，转眼间都飘散如烟。
+					</div>
+					<div class="email-info">
+                        我曾经失落失望失掉所有一切，而如今才看见
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 footer-right" style="text-align: right">
+				<h4>扫描二维码有彩蛋哦~</h4>
+                <img src="{% static 'images/cd.png' %}" width="60%">
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- container -->
+	<hr>
+	<div class="copyright">
+		<p>Copyright @2019 XiFeng  西安网备案 ICP证0256232号（能查到算我输）</p>
+	</div>
+</section>
+<!-- /Footer Section -->
+<!-- Back To Top -->
+<a href="#0" class="cd-top">Top</a>
+<!-- /Back To Top -->
+
+<!-- js files -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/SmoothScroll.min.js' %}"></script>
+<!-- js for gallery -->
+<script src="{% static 'js/darkbox.js' %}"></script>
+<!-- /js for gallery -->
+<!-- js for back to top -->
+<script src="{% static 'js/main.js' %}"></script>
+<!-- /js for back to top -->
+<!-- js for nav-smooth scroll -->
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+  // Store hash
+  var hash = this.hash;
+
+  // Using jQuery's animate() method to add smooth page scroll
+  // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+  $('html, body').animate({
+    scrollTop: $(hash).offset().top
+  }, 900, function(){
+
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    window.location.hash = hash;
+    });
+  });
+})
+</script>
+<!-- /js for nav-smooth scroll -->
+<!-- js for slide animations -->
+<script>
+$(window).scroll(function() {
+  $(".slideanim").each(function(){
+    var pos = $(this).offset().top;
+
+    var winTop = $(window).scrollTop();
+    if (pos < winTop + 600) {
+      $(this).addClass("slide");
+    }
+  });
+});
+</script>
+<!-- /js for slide animations -->
+<!-- /js files -->
+</body>
+</html>

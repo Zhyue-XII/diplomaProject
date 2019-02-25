@@ -1,0 +1,139 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>时光机</title>
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+    <link href="{% static 'css/impress-demo.css' %}" rel="stylesheet" />
+</head>
+<body class="impress-not-supported"
+>
+0 
+	<div class="fallback-message">
+	    <p>你的浏览器 <b>不支持</b> impress.js</p>
+	    <p>使用  <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b>浏览器会有更好的体验</p>
+	</div>
+
+
+	<div id="impress">
+	    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+            <p style="color: white;padding: 10px 0">高新学院的天还是很蓝的..</p>
+            <img src="{% static 'images/gxxy.jpg' %}" width="100%" alt="">
+
+	    </div>
+
+	    <div class="step slide" data-x="0" data-y="-1500">
+            <img src="{% static 'images/dyt.jpg' %}" width="100%" alt="">
+            <p style="color: white;padding: 10px 0">西安大雁塔..</p>
+	    </div>
+
+	    <div class="step slide" data-x="1000" data-y="-1500">
+	        <img src="{% static 'images/浮光掠影4.jpg' %}">
+	    </div>
+
+	    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+	        <p>从大一开学的那天，我怀着无比兴奋的心情走进 高新学院<sup>*</sup></p>
+	        <p class="footnote"><sup>*</sup> 开始了大学生活  </p>
+	    </div>
+
+	    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+	        <p>也是我独自开始人生旅途的<strong>第一步</strong>。不知道将来会怎样，但是，心里怀着
+			<strong>对未来美好的期待</strong>，我来了！ </p>
+	    </div>
+
+	    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+	        <p>大一过的很快，看了很多以前没看完的电视剧，和舍友吃呀逛啊，它就过去了。</p>
+	    </div>
+
+	    <div id="tiny" style="width: 800px" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+	        <p>世界那么大，我想去看看。大二存钱去很多地方玩呀，看过了大山大海，吃了很多大餐。  </p>
+	    </div>
+
+	   
+	    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+	        <p>大三的我们忙各自的事情 <b class="positioning">实习</b>, <b class="rotating">考公务员</b> 还有 <b class="scaling">考研</b>
+                的，大家都朝着各自的方向走着。 </p>
+	    </div>
+
+	    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+	        <p>就这样慢慢进入了大学 <b>生活</b> 最后的 <b class="imagination">乐章</b></p>
+	    </div>
+
+	    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+	        <p>人好像总是怀念过去，高中想念初中，大学想念高中，呵呵，我开始想念了！</p>
+	    </div>
+
+	    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+	        <p>而今天，也许是我最后一次在教室里，和大家一起，讨论学术问题..</p>
+	    </div>
+
+	    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+	        <p><span class="have">我将</span> <span class="you">好好珍惜</span> <span class="noticed">这最后</span> <span class="its">一</span> <span class="in">课</span>
+                ，<b>让现在更加值得<sup>怀念</sup></b>！</p>
+            <a href="/"><span class="footnote">* 毕业答辩</span></a>
+	    </div>
+	    
+	    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10"></div>
+
+	</div>
+
+	<div class="hint">
+	    <p>使用空格键切换下一张，开始时光旅程啦！</p>
+	</div>
+
+		<script>
+			if ("ontouchstart" in document.documentElement) { 
+			    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+			}
+		</script>
+
+		<script src="{% static 'js/impress.js' %}"></script>
+		<script>impress().init();</script>
+
+</body>
+</html>
+
+
+<!--
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.======.\ ' J           
+                         "-.   "__"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..-=  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+
