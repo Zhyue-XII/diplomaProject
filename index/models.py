@@ -22,8 +22,7 @@ class Article(models.Model):
 class Discuss(models.Model):
     text = models.TextField('内容')
     issue_time = models.DateTimeField('发布时间', auto_now=True)
-    user = models.CharField('用户名', max_length=50)
-    image = models.ImageField(u'图片', upload_to='user_img')
+    user = models.CharField('用户名', max_length=50, default='ts12Ab')
     article = models.ForeignKey(Article, null=True, on_delete=models.SET_NULL, verbose_name='文章标题')
 
     class Meta:

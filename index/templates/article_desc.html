@@ -27,8 +27,8 @@
     }
     .ping{
         color: black;
-        height: 35px;
-        padding: 20px 0;
+        padding: 10px 0;
+        overflow: hidden;
     }
     .ping p:first-child{
         overflow: hidden;
@@ -40,33 +40,63 @@
     </style>
 {% endblock %}
 {% block content %}
-    <div class="article-desc slideanim">
-        <h2>江南烟雨中</h2>
+    <div class="article-desc">
+        <h2>{{ article.title }}</h2>
         <div class="article—msg">
-            <span>作者：梁冰</span>
-            <span>时间：2017年10月5日</span>
+            <span>作者：{{ article.author }}</span>
+            <span>时间：{{ article.issue_time }}</span>
         </div>
         <p>
-            第一次来江南水乡。印象中的水乡应该是草长莺飞，小桥流水，一蓑烟雨的现象。 实则否则。刚到绍兴，满眼尽是楼房拔地而起，商铺树立。 于是乎，带着逃离的心态，驱车一个小时，来到鲁迅新居。三味书屋、百草园、社戏，五猖会、闰土，乃至是碧绿的菜畦、高大的皂荚树、润 滑的石井栏等等，都能在这个大园子里找到踪迹。 对于园子里的全部，都觉得亲热。《从百草园到三味书屋》是初中课文，这篇选自《朝花 夕拾》的回想散文，充溢童趣，曾来来回回给不同的学生讲过四遍。
+            {{ article.text }}
         </p>
+        <img src="../../static/picture/{{ article.image }}" width="35%" alt="">
         <p>
-            闰土是鲁迅儿时的玩伴，他英勇，机敏，心爱，生动。相对于公子哥鲁迅，视野更开阔。世事再芜杂，孩童的纯真是挡不住的。 很多年后，再见到中年的闰土，他神态麻木，默不做声。鲁迅说，只是觉得他苦，却又说不出。
+            * {{ article.visit }} 人阅读过
         </p>
-        <img src="{% static 'images/article-img.jpg' %}" width="35%" alt="">
+
     </div>
 
     <div class="con">
-        <div class="ping">
-            <p>
-                <img src="{% static 'images/banner5.jpg' %}" alt="">
-                匿名用户
-            </p>
-            <p>
-                你好离开军队打击恐怖背景。
-            </p>
-
-        </div>
+        {% if data %}
+            {% for d in data %}
+                <div class="ping">
+                    <p>
+                        <img src="{% static 'images/banner5.jpg' %}" alt="">
+                        {{ d.user }}  {{ d.time }}
+                    </p>
+                    <p> {{ d.text }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="ping">
+                {{ mess }}
+            </div>
+        {% endif %}
     </div>
+
+    <form role="form" id="frm-Discuss">
+        <input type="text" name="id" hidden value="{{ article.id }}">
+        <div class="row">
+            <div class="form-group col-lg-12">
+                <textarea class="form-control" name="text" rows="6" placeholder="请留言.." required/></textarea>
+            </div>
+        </div>
+    </form>
+    <div class="form-group col-lg-12">
+        <button type="submit" onclick="submitFrm()" class="btn-outline1">提交</button>
+    </div>
+
+    <script>
+function submitFrm() {
+    $.post('discuss',$('#frm-Discuss').serialize(), function (data) {
+        if (data.code === 200){
+            window.location.reload()
+        } else {
+            layer.msg('提价失败！')
+        }
+    })
+}
+</script>
 {% endblock %}
 {% block script %}
 

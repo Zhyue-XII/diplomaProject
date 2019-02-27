@@ -1,4 +1,7 @@
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import Article, Diary, Image, Message, Discuss
 
 
@@ -23,5 +26,28 @@ def article_tab(request):
 
 def article_desc(request):
     article_id = request.GET.get('id')
-    print(article_id)
-    return render(request, 'article_desc.html', {'data': article_desc})
+    article = Article.objects.get(id=article_id)
+    article.visit += 1
+    article.save()
+    discuss = Discuss.objects.filter(article_id=article_id).values('user', 'issue_time', 'text')
+    mess = ''
+    data = []
+    if discuss:
+        for d in discuss:
+            data.append({
+                'user': d['user'],
+                'time': d['issue_time'],
+                'text': d['text']
+            })
+    else:
+        mess = "还没有人评论哦.."
+    return render(request, 'article_desc.html', {'article': article, 'data': data, 'mess': mess})
+
+
+@csrf_exempt
+def submit_discuss(request):
+    id = request.POST.get('id')
+    text = request.POST.get('text')
+    dis = Discuss.objects.create(text=text, article_id=id)
+    dis.save()
+    return JsonResponse({'code': 200, 'mess': '提交成功'})

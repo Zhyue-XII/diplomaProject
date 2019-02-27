@@ -19,14 +19,8 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(Discuss)
 class DiscussAdmin(admin.ModelAdmin):
-    list_display = ['user', 'issue_time', 'article', 'text', 'image_data']
+    list_display = ['user', 'issue_time', 'article', 'text']
     search_fields = ['user']
-
-    def image_data(self, obj):
-        return mark_safe(u'<img src="%s" width="50px" style="border-radius:50px;height:50px"/>' % obj.image.url)
-    readonly_fields = ('image_data',)  # 必须加这行 否则访问编辑页面会报错
-    # 页面显示的字段名称
-    image_data.short_description = '默认头像'
     list_per_page = 10
 
 
