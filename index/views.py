@@ -52,3 +52,10 @@ def photos_list(request):
     print(day)
     return render(request, 'picture.html', {'data': day})
 
+
+@csrf_exempt
+def submit_message(request):
+    txt = request.POST.get('text')
+    msg = Message.objects.create(message=txt)
+    msg.save()
+    return JsonResponse({'code': 200, 'mess': '提交成功'})

@@ -6,18 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
-<!-- css files -->
-<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
-<!-- /css files -->
-<!-- font files -->
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<!-- /font files -->
-<!-- js files -->
-<script src="{% static 'js/modernizr.custom.js' %}"></script>
-<!-- /js files -->
+    <!-- css files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <!-- /css files -->
+    <!-- font files -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}">
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <script src="{% static 'layer/layer.js' %}"></script>
+    <script src="{% static 'layui/layui.js' %}"></script>
+    <!-- /font files -->
+    <!-- js files -->
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    <!-- /js files -->
 <style>
     .liu{
         padding: 20px 0;
@@ -200,16 +204,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12" align="center">
-				<form role="form">
+				<form role="form" id="msgFrm">
 					<div class="row">
 						<div class="form-group col-lg-12 slideanim">
-							<textarea class="form-control" rows="6" placeholder="请留言.." required/></textarea>
-						</div>
-						<div class="form-group col-lg-12 slideanim">
-							<button type="submit" href="#" class="btn-outline1">Submit</button>
+							<textarea class="form-control" name="text" rows="6" placeholder="请留言.." required/></textarea>
 						</div>
 					</div>
 				</form>
+                <div class="slideanim" style="margin: 20px 0">
+                    <button type="submit" onclick="submitMsg()" class="btn-outline1">Submit</button>
+                </div>
                 <div class="slideanim" id="liu" style="display: none">
                     {% for m in msg %}
                         <div class="liu" align="left">
@@ -313,6 +317,18 @@ $(window).scroll(function() {
     }
   });
 });
+
+function submitMsg() {
+    $.post("message", $("#msgFrm").serialize(), function (data) {
+        if (data.code === 200) {
+            layer.msg(data.mess)
+        } else {
+            layer.msg('提交失败')
+        }
+    })
+
+
+}
 </script>
 <!-- /js for slide animations -->
 <!-- /js files -->
