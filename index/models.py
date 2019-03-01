@@ -60,7 +60,7 @@ class Message(models.Model):
 
 
 class Image(models.Model):
-    date_time = models.DateTimeField('发布时间', auto_now=True)
+    date_time = models.DateField('发布时间', auto_now=True)
     name = models.CharField('照片描述', max_length=30)
     image = models.ImageField(u'图片', upload_to='photos')
 

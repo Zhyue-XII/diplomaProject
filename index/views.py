@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -8,7 +9,7 @@ from .models import Article, Diary, Image, Message, Discuss
 def index_view(request):
     top_article = Article.objects.filter(top=1)[0]
     diary_list = Diary.objects.all()[0:3]
-    photos = Image.objects.all()[0: 8]
+    photos = Image.objects.all().order_by('-id')[0:8]
     msg = Message.objects.all()
     return render(request, 'index.html',
                   {
@@ -30,18 +31,11 @@ def article_desc(request):
     article.visit += 1
     article.save()
     discuss = Discuss.objects.filter(article_id=article_id).values('user', 'issue_time', 'text')
-    mess = ''
-    data = []
-    if discuss:
-        for d in discuss:
-            data.append({
-                'user': d['user'],
-                'time': d['issue_time'],
-                'text': d['text']
-            })
+    data = discuss.annotate().all()
+    if data:
+        return render(request, 'article_desc.html', {'article': article, 'data': data})
     else:
-        mess = "还没有人评论哦.."
-    return render(request, 'article_desc.html', {'article': article, 'data': data, 'mess': mess})
+        return render(request, 'article_desc.html', {'article': article, 'mess': '还没有人评论哦'})
 
 
 @csrf_exempt
@@ -51,3 +45,10 @@ def submit_discuss(request):
     dis = Discuss.objects.create(text=text, article_id=id)
     dis.save()
     return JsonResponse({'code': 200, 'mess': '提交成功'})
+
+
+def photos_list(request):
+    day = Image.objects.values('date_time').order_by('-date_time')
+    print(day)
+    return render(request, 'picture.html', {'data': day})
+

@@ -13,8 +13,11 @@
 {% endblock %}
 {% block content %}
     <section class="our-gallery" id="gallery">
+    {% for d in data %}
+        {{ d.date_time }}
+    {% endfor %}
         <div class="container">
-            <h3 class="title">2018年7月28日</h3>
+            <h3 class="title slideanim">2018年7月28日</h3>
             <img src="{% static 'images/gxxy.jpg' %}" data-darkbox="{% static 'images/gxxy.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
             <img src="{% static 'images/dyt.jpg' %}" data-darkbox="{% static 'images/dyt.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
             <img src="{% static 'images/光与影.jpg' %}" data-darkbox="{% static 'images/光与影.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">

@@ -53,25 +53,23 @@
         <p>
             * {{ article.visit }} 人阅读过
         </p>
-
     </div>
 
     <div class="con">
-        {% if data %}
-            {% for d in data %}
-                <div class="ping">
-                    <p>
-                        <img src="{% static 'images/banner5.jpg' %}" alt="">
-                        {{ d.user }}  {{ d.time }}
-                    </p>
-                    <p> {{ d.text }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
+
+        {% for d in data %}
             <div class="ping">
-                {{ mess }}
+                <p>
+                    <img src="{% static 'images/banner5.jpg' %}" alt="">
+                    {{ d.user }} {{ d.issue_time }}
+                </p>
+                <p> {{ d.text }}</p>
             </div>
-        {% endif %}
+        {% endfor %}
+        <div class="ping">
+            {{ mess }}
+        </div>
+
     </div>
 
     <form role="form" id="frm-Discuss">
