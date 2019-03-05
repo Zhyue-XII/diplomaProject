@@ -1,4 +1,3 @@
-from django.db.models import Sum
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -9,7 +8,7 @@ from .models import Article, Diary, Image, Message, Discuss
 def index_view(request):
     top_article = Article.objects.filter(top=1)[0]
     diary_list = Diary.objects.all()[0:3]
-    photos = Image.objects.all().order_by('-id')[0:8]
+    photos = Image.objects.all().order_by('-date_time')[0:8]
     msg = Message.objects.all()
     return render(request, 'index.html',
                   {
@@ -48,9 +47,9 @@ def submit_discuss(request):
 
 
 def photos_list(request):
-    day = Image.objects.values('date_time').order_by('-date_time')
-    print(day)
-    return render(request, 'picture.html', {'data': day})
+    img = Image.objects.all().order_by('-date_time')
+    print(img)
+    return render(request, 'picture.html', {'data': img})
 
 
 @csrf_exempt

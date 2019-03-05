@@ -13,24 +13,12 @@
 {% endblock %}
 {% block content %}
     <section class="our-gallery" id="gallery">
-    {% for d in data %}
-        {{ d.date_time }}
-    {% endfor %}
         <div class="container">
-            <h3 class="title slideanim">2018年7月28日</h3>
-            <img src="{% static 'images/gxxy.jpg' %}" data-darkbox="{% static 'images/gxxy.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/dyt.jpg' %}" data-darkbox="{% static 'images/dyt.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/光与影.jpg' %}" data-darkbox="{% static 'images/光与影.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <h3 class="title">2018年7月28日</h3>
-            <img src="{% static 'images/桃花笑.jpg' %}" data-darkbox="{% static 'images/桃花笑.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/浮光掠影里1.jpg' %}" data-darkbox="{% static 'images/浮光掠影里1.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/浮光掠影2.jpg' %}" data-darkbox="{% static 'images/浮光掠影2.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/浮光掠影4.jpg' %}" data-darkbox="{% static 'images/浮光掠影4.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/灯笼.jpg' %}" data-darkbox="{% static 'images/灯笼.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <h3 class="title">2018年6月5日</h3>
-            <img src="{% static 'images/article-img.jpg' %}" data-darkbox="{% static 'images/article-img.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/banner5.jpg' %}" data-darkbox="{% static 'images/banner5.jpg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-            <img src="{% static 'images/event.jpeg' %}" data-darkbox="{% static 'images/event.jpeg' %}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+            <h3 class="title slideanim">相册</h3>
+              {% for d in data %}
+                <img src="../../static/picture/{{ d.image }}" data-darkbox="../../static/picture/{{ d.image }}" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+            {% endfor %}
+
         </div>
     </section>
 {% endblock %}
