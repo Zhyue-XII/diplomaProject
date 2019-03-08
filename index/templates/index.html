@@ -37,9 +37,32 @@
     .liu p:last-child{
         padding: 10px 0 0 50px;
     }
+    .audioView{
+        position: fixed;
+        z-index: 1000;
+        bottom: 50px;
+        left: -300px;
+        background: #f1f3f4;
+        transition: all .8s;
+    }
+    .gtlt{
+        float: right;
+        height: 54px;
+        line-height: 54px;
+    }
 </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<div class="audioView">
+    <audio  controls="controls" autoplay="autoplay">
+        <source src="{% static 'video/xiaomansha.mp3' %}">
+    </audio>
+    <div class="gtlt">
+        <img id="gt" style="display: none;" src="{% static 'images/left.png' %}" width="25px" alt="">
+        <img id="lt" src="{% static 'images/right.png' %}" width="25px" alt="">
+    </div>
+</div>
+
 <div class="navbar-wrapper" style="position: fixed;top: -20px;height: 70px;background: #5a665c">
     <div class="container">
 		<nav class="navbar navbar-inverse navbar-static-top cl-effect-20">
@@ -68,7 +91,8 @@
         </nav>
     </div>
 </div>
-<!-- Banner Section -->
+
+<div style="height: 50px"></div>
 <!-- Carousel-->
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
     <!-- Indicators -->
@@ -106,7 +130,7 @@
 	<div class="container">
 		<div style="overflow: hidden" class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6">
-				<img src="{% static 'images/article-img.jpg' %}" alt="about" class="img-responsive slideanim">
+				<img src="../../static/picture/{{ top_article.image }}" alt="about" class="img-responsive slideanim">
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6">
 				<div class="about-info">
@@ -131,10 +155,10 @@
 	<div id="features">
 		<div class="container">
 			<div class="row" align="center">
-{#                <video width="60%" controls>#}
-{#                    <source src="{% static 'video/demo.MP4' %}" type="video/mp4">#}
-{#                    您的浏览器不支持html播放。#}
-{#                </video>#}
+                <video width="70%" controls>
+                    <source src="../../static/video/xinjang.mp4" type="video/mp4">
+                    您的浏览器不支持html播放。
+                </video>
 			</div>
 		</div><!--/ .container -->
 	</div><!--/ #features -->
@@ -142,7 +166,7 @@
 <!-- /Services Section -->
 <!-- Events -->
 <section class="our-events slideanim" id="events">
-	<h3 class="text-center slideanim">足迹</h3>
+	<h3 class="text-center slideanim">我走过的地方</h3>
 	<p class="text-center slideanim">我的梦想是全世界都能留下我的足迹。</p>
 	<div class="container">
 		<div class="row">
@@ -192,7 +216,7 @@
 
 <!-- Contact Section -->
 <section class="our-contacts slideanim" id="message">
-	<h3 class="text-center slideanim">留言板</h3>
+	<h3 class="text-center slideanim">有话对我说</h3>
 	<p class="text-center slideanim">我们用心记录下每一个瞬间，很久很久以后，这些都是可以用生命去回忆的。</p>
 	<div class="container">
 		<div class="row">
@@ -303,9 +327,19 @@ function submitMsg() {
             layer.msg('提交失败')
         }
     })
-
-
 }
+
+$("#lt").click(function () {
+    $(".audioView").css({"left":"0px"})
+    $("#lt").css({"display":"none"})
+    $("#gt").css({"display":"block","margin-top":"15px"})
+});
+
+$("#gt").click(function () {
+    $(".audioView").css({"left":"-290px"})
+    $("#gt").css({"display":"none"})
+    $("#lt").css({"display":"block","margin-top":"15px"})
+})
 </script>
 <!-- /js for slide animations -->
 <!-- /js files -->

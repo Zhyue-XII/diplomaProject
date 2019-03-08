@@ -7,3 +7,6 @@
 *.iml
 out
 gen
+
+# 谷歌浏览器自动播放
+# chrome://flags --> Autoplay policy --> No user gesture is required
