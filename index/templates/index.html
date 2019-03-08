@@ -92,10 +92,8 @@
     </div>
 </div>
 
-<div style="height: 50px"></div>
 <!-- Carousel-->
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-    <!-- Indicators -->
+<div id="myCarousel" style="margin-top: 50px" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -120,10 +118,8 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-    <!-- /.carousel -->
 </div>
-<!-- /Banner Section -->
-<!-- About Section -->
+
 <section class="about-us" style="padding-bottom: 50px" id="article">
 	<h3 class="text-center slideanim">置顶文章</h3>
 	<p class="text-center slideanim">指尖跳动的文字撩动着你的心</p>
@@ -147,8 +143,7 @@
         </div>
 	</div>
 </section>
-<!-- /About Section -->
-<!-- Services Section -->
+
 <section class="our-services slideanim" id="video">
 	<h3 class="text-center slideanim">视频</h3>
 	<p class="text-center slideanim">记录我的尖峰时刻。</p>
@@ -160,11 +155,10 @@
                     您的浏览器不支持html播放。
                 </video>
 			</div>
-		</div><!--/ .container -->
-	</div><!--/ #features -->
+		</div>
+	</div>
 </section>
-<!-- /Services Section -->
-<!-- Events -->
+
 <section class="our-events slideanim" id="events">
 	<h3 class="text-center slideanim">我走过的地方</h3>
 	<p class="text-center slideanim">我的梦想是全世界都能留下我的足迹。</p>
@@ -182,8 +176,7 @@
 	</div>
 </section>
 <div class="tlinks"></div>
-<!-- /Events -->
-<!-- Gallery Section -->
+
 <section class="our-gallery" id="gallery">
 	<h3 class="text-center slideanim">相册</h3>
 	<p class="text-center slideanim">记录生活，记录你的美</p>
@@ -201,8 +194,7 @@
         </p>
     </div>
 </section>
-<!-- /Gallery Section -->
-<!-- Testimonials -->
+
 <section class="our-testimonials slideanim" id="time">
 	<h3 class="text-center slideanim">时光灯，感受时间流逝..</h3>
 	<p class="text-center slideanim">幻灯片，一种回忆时间的能力</p>
@@ -212,9 +204,7 @@
 		</div>
 	</div>
 </section>
-<!-- Testimonials -->
 
-<!-- Contact Section -->
 <section class="our-contacts slideanim" id="message">
 	<h3 class="text-center slideanim">有话对我说</h3>
 	<p class="text-center slideanim">我们用心记录下每一个瞬间，很久很久以后，这些都是可以用生命去回忆的。</p>
@@ -252,9 +242,6 @@
 		</div>
 	</div>
 </section>
-<!-- /Contact Section -->
-
-<!-- Footer Section -->
 <section class="footer">
 	<h2 class="text-center">我将会变的越来越好</h2>
 	<hr>
@@ -291,8 +278,7 @@
 <script src="{% static 'js/SmoothScroll.min.js' %}"></script>
 <script src="{% static 'js/darkbox.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-<!-- /js for back to top -->
-<!-- js for nav-smooth scroll -->
+
 <script>
 $(document).ready(function(){
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
@@ -305,8 +291,7 @@ $(document).ready(function(){
   });
 })
 </script>
-<!-- /js for nav-smooth scroll -->
-<!-- js for slide animations -->
+
 <script>
 $(window).scroll(function() {
   $(".slideanim").each(function(){
@@ -341,7 +326,5 @@ $("#gt").click(function () {
     $("#lt").css({"display":"block","margin-top":"15px"})
 })
 </script>
-<!-- /js for slide animations -->
-<!-- /js files -->
 </body>
 </html>

@@ -9,13 +9,40 @@
     <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
     <meta name="author" content="Bartek Szopka" />
     <link href="{% static 'css/impress-demo.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/jquery-3.2.0.js' %}"></script>
+    <style>
+        .audioView {
+            position: fixed;
+            z-index: 1000;
+            bottom: 50px;
+            left: -400px;
+            background: #f1f3f4;
+            transition: all .8s;
+        }
+
+        .gtlt {
+            float: right;
+            height: 54px;
+            line-height: 70px;
+        }
+    </style>
 </head>
 <body class="impress-not-supported">
+    <!-- 背景音乐 -->
+    <div class="audioView">
+        <audio  controls="controls" autoplay="autoplay">
+            <source src="{% static 'video/xiaomansha.mp3' %}">
+        </audio>
+        <div class="gtlt">
+            <img id="gt" style="display: none;" src="{% static 'images/left.png' %}" width="25px" alt="">
+            <img id="lt" src="{% static 'images/right.png' %}" width="25px" alt="">
+        </div>
+    </div>
 	<div class="fallback-message">
 	    <p>你的浏览器 <b>不支持</b> impress.js</p>
 	    <p>使用  <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b>浏览器会有更好的体验</p>
 	</div>
-
+    <!-- 背景音乐 -->
 
 	<div id="impress">
 	    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
@@ -94,8 +121,21 @@
 
 </body>
 </html>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script>
+$("#lt").click(function () {
+    $(".audioView").css({"left":"0px"})
+    $("#lt").css({"display":"none"})
+    $("#gt").css({"display":"block","margin-top":"15px"})
+});
 
-
+$("#gt").click(function () {
+    $(".audioView").css({"left":"-290px"})
+    $("#gt").css({"display":"none"})
+    $("#lt").css({"display":"block","margin-top":"15px"})
+})
+</script>
+<script src="{% static 'js/jquery-3.2.0.js' %}"></script>
 <!--
                                ____                  
                             _.' :  `._               
